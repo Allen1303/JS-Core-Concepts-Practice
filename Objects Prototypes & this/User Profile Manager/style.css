@@ -1,0 +1,88 @@
+/* Page layout */
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f4f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Main card */
+.container {
+  background: #ffffff;
+  padding: 22px;
+  width: 320px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Title */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: #333;
+}
+
+/* Labels */
+label {
+  font-size: 13px;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  display: block;
+  color: #555;
+}
+
+/* Inputs */
+input {
+  width: 90%;
+  padding: 9px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
+/* Button */
+button {
+  margin-top: 18px;
+  width: 60%;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background: #4a90e2;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background: #3a78c0;
+}
+
+/* Profile display */
+.profile {
+  margin-top: 22px;
+  background: #f7f9fc;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #e2e6ea;
+}
+
+.profile h2 {
+  font-size: 16px;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.profile h3 {
+  font-size: 14px;
+  font-weight: normal;
+  color: #555;
+}

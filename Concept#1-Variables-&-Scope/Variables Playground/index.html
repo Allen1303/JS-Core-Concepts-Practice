@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Scope & Variables — Simple Variables Playground</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Simple Variables Playground</h1>
+      <p class="desc">
+        Experiment with var, let, and const to understand scope boundaries.
+      </p>
+
+      <div id="app" class="card">
+        <button id="runBtn">Run Demo</button>
+        <pre id="output"></pre>
+      </div>
+
+      <section class="notes">
+        <h3>Concept Intro</h3>
+        <pre class="code">
+JavaScript has 3 main ways to declare variables:
+- var   → function scoped (and hoisted)
+- let   → block scoped
+- const → block scoped + cannot be reassigned
+
+Block scope only applies to { ... } when using let/const.
+      </pre
+        >
+
+        <h3>Example</h3>
+        <pre class="code">
+// Example: block scope vs function scope
+{
+  let a = 'block scoped';
+  var b = 'function scoped';
+}
+// a → ReferenceError
+// b → works, because var ignores block scope
+      </pre
+        >
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Scope & Variables — Scope Quiz App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Scope Quiz App</h1>
+      <p class="desc">
+        Test your understanding of scope with a simple interactive quiz.
+      </p>
+
+      <div class="card" id="quizBox">
+        <p>
+          <strong>Question:</strong> What happens if you access a let variable
+          declared inside a block?
+        </p>
+        <button data-answer="correct">Throws error</button>
+        <button data-answer="wrong">Returns undefined</button>
+        <button data-answer="wrong">Returns null</button>
+
+        <p id="feedback"></p>
+      </div>
+
+      <section class="notes">
+        <h3>Concept Intro</h3>
+        <pre class="code">
+let/const → block scoped
+var → function scoped, ignores block scope
+Accessing let/const outside the block → ReferenceError
+    </pre
+        >
+
+        <h3>Example</h3>
+        <pre class="code">
+{
+  let x = 10;
+}
+console.log(x); // ReferenceError
+    </pre
+        >
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

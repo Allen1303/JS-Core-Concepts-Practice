@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Savings Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Savings Goal Tracker</h1>
+
+      <label>Your Goal ($):</label>
+      <input id="goalInput" type="number" />
+
+      <button id="setGoalBtn">Set Goal</button>
+
+      <div id="trackerArea" class="hidden">
+        <label>Add Amount ($):</label>
+        <input id="amountInput" type="number" />
+
+        <button id="addBtn">Add Savings</button>
+        <button id="resetBtn">Reset Savings</button>
+
+        <h3 id="progressDisplay">Progress: $0 / $0</h3>
+        <h3 id="percentDisplay">0% Saved</h3>
+
+        <h3 id="historyDisplay">Transaction History:</h3>
+        <ul id="historyList"></ul>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

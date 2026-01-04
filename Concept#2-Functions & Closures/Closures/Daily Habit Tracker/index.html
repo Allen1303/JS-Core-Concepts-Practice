@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Habit Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Daily Habit Tracker</h1>
+
+      <label>Habit Name:</label>
+      <input id="habitInput" type="text" />
+
+      <button id="startBtn">Start Tracking Habit</button>
+
+      <div id="trackerArea" class="hidden">
+        <!-- TASK 6 UI Elements Added Here -->
+        <div class="goal-controls">
+          <label for="goalInput">Weekly Goal:</label>
+          <input
+            id="goalInput"
+            type="number"
+            min="1"
+            value="1"
+            style="width: 60px"
+          />
+          <button id="setGoalBtn">Set Goal</button>
+        </div>
+        <p id="progressDisplay">Progress: 0%</p>
+        <!-- End Task 6 Additions -->
+
+        <button id="incrementBtn">+ Add Completion</button>
+        <button id="resetBtn">Reset</button>
+
+        <h2 id="countDisplay">Count: 0</h2>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

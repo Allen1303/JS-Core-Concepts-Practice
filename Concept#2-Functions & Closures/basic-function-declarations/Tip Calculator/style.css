@@ -1,0 +1,95 @@
+/* Overall page layout */
+body {
+  font-family: "Inter", Arial, sans-serif;
+  background: #f3f4f6;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  color: #111827;
+}
+
+/* Card container */
+.container {
+  background: #ffffff;
+  padding: 30px 25px;
+  max-width: 420px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  /* Center form elements */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Title */
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 28px;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+/* Labels */
+label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #374151;
+}
+
+/* Inputs */
+input {
+  width: 40%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+input:focus {
+  border-color: #6366f1;
+}
+
+/* Button */
+button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+button:hover {
+  background: #4f46e5;
+}
+
+/* Result text */
+h2 {
+  margin-top: 20px;
+  text-align: center;
+  background: #eef2ff;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #4338ca;
+}
+label,
+input,
+button {
+  width: 50%;
+  max-width: 320px; /* keeps them centered and not too wide */
+}
