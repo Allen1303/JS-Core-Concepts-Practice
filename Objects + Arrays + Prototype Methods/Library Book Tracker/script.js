@@ -233,7 +233,7 @@ const renderLibrary = function () {
 
         //Dynamically create the delete button
         const deleteBtn = document.createElement("button");
-        deleteBtn.innerHTML = "&#10006"; // Trash can Unicode
+        deleteBtn.innerHTML = "&#10006"; //Unicode large X
         //JS color stlying
         deleteBtn.style.fontSize = "1.4rem";
         deleteBtn.style.color = "#ff4d4d";
