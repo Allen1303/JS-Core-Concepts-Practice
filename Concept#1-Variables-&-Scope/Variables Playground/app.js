@@ -3,7 +3,7 @@
 /*
 =====================================================
 CONCEPT: Scope & Variables (var / let / const)
-PROJECT: Simple Variables Playground
+PROJECT: Simple Variables Practice
 =====================================================
 
 STUDY THIS EXAMPLE FIRST:
@@ -23,10 +23,6 @@ WHY THIS MATTERS:
 */
 
 /*
-=====================================================
-YOUR TASKS (NO SOLUTIONS GIVEN)
-=====================================================
-
 TODO 1:
 Inside the button click handler, create variables using var, let, and const.
 Observe in the console or #output which variables are accessible inside/outside blocks.

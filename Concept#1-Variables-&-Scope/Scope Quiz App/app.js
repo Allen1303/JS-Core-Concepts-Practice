@@ -1,3 +1,4 @@
+"use strict";
 /*
 =====================================================
 CONCEPT: Scope & Variables
@@ -17,10 +18,6 @@ KEY TAKEAWAYS:
 */
 
 /*
-=====================================================
-YOUR TASKS (NO SOLUTIONS INCLUDED)
-=====================================================
-
 TODO 1:
 When any answer button is clicked, check the data-answer attribute.
 
