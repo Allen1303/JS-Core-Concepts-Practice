@@ -2,7 +2,7 @@
 
 This project is a **foundational JavaScript exercise** designed to strengthen understanding of how JavaScript works _under the hood_.
 
-The focus is intentionally **not** on frameworks or advanced UI, but on mastering:
+The focus is intentionally **not** on frameworks or advanced UI, but on getting better with :
 
 - Core JavaScript language mechanics
 - Object creation and memory behavior
@@ -132,7 +132,7 @@ This teaches:
 
 JavaScript dynamically updates the interface based on the current state of the array.
 
-Practiced skills:
+Skills Learnt & Practiced:
 
 - Creating elements dynamically
 - Updating text content
@@ -165,17 +165,8 @@ By completing this project, the following **core JavaScript concepts** were rein
 ✔ Event Handling
 ✔ DOM Manipulation
 
-These fundamentals form the backbone of modern JavaScript and prepare you for:
-
-- ES6 Classes
-- Object-Oriented Programming
-- Frontend frameworks like React and Vue
-
 ---
 
-**Strong fundamentals before frameworks.**
-
 ```
-
 
 ```
