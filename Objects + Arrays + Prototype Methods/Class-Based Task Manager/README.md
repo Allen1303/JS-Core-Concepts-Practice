@@ -32,8 +32,6 @@ Each task is an **object instance** created from the `Task` class.
 const newTask = new Task("Learn JavaScript");
 ```
 
-````
-
 What you learn:
 
 - Objects represent real-world entities
@@ -180,8 +178,3 @@ This exercise builds the **mental model** required to:
 - Debug JavaScript confidently
 - Write scalable, maintainable code
 - Truly understand how JavaScript works under the hood
-
-```
-
-
-````
