@@ -1,0 +1,32 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background: white;
+  padding: 24px;
+  width: 360px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+button {
+  padding: 10px 14px;
+  margin: 15px 0;
+  cursor: pointer;
+}
+
+#userCard {
+  margin-top: 15px;
+}
+
+img {
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
