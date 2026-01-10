@@ -40,79 +40,6 @@ IMPORTANT CONCEPTS:
 - await pauses execution
 - try/catch handles async errors
 =====================================================
-🧪 PROJECT TASKS — Random User Fetcher
-=====================================================
-
-TASK 1 — Cache DOM Elements
-----------------------------------------
-Store references to:
-- load button
-- status text
-- userCard container
-
-----------------------------------------
-
-TASK 2 — Create async function loadUser()
-----------------------------------------
-Inside the function:
-- Show "Loading..." in status
-- Clear previous user data
-
-----------------------------------------
-
-TASK 3 — Fetch User Data
-----------------------------------------
-Use fetch() to request:
-https://randomuser.me/api/
-
-HINT:
-- Await the response
-- Await response.json()
-
-----------------------------------------
-
-TASK 4 — Extract Needed Data
-----------------------------------------
-From the API response, extract:
-- first name
-- last name
-- email
-- profile picture
-
-Use console.log to inspect structure first.
-
-----------------------------------------
-
-TASK 5 — Render User Card
-----------------------------------------
-Create HTML elements dynamically:
-- Image
-- Name
-- Email
-
-Append them to userCard.
-
-----------------------------------------
-
-TASK 6 — Handle Errors
-----------------------------------------
-If fetch fails:
-- Show error message in status
-- Do NOT crash the app
-
-----------------------------------------
-
-TASK 7 — Button Event
-----------------------------------------
-When button is clicked:
-- Call loadUser()
-
-----------------------------------------
-
-BONUS THINKING:
-Why must fetch logic be async?
-What happens if await is removed?
-=====================================================
 */
 
 //TASK 1 — Cache DOM Elements
@@ -152,6 +79,14 @@ async function loadUser() {
     } catch (error) {
         status.textContent = error.message || error;
         status.style.color = "crimson";
+    } finally {
+        if (status.textContent === "Loading...") {
+            status.textContent = "User Loaded";
+        }
     }
 }
 loadUser();
+
+//TASK 7 — Button Event When button is clicked: - Call loadUser() function
+loadBtn.addEventListener("click", loadUser);
+// console.log(loadUser());
