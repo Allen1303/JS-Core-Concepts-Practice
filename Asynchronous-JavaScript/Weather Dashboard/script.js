@@ -177,7 +177,6 @@ getCoordinates();
 //TASK 3 — Create Async Function: getWeather(lat, lon)
 const getWeather = async (lat, lon) => {
     //- Accept latitude & longitude
-
     const response = await fetch(
         `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`,
     );
@@ -185,3 +184,33 @@ const getWeather = async (lat, lon) => {
     const { temperature, weathercode } = data.current_weather;
     return { temperature, weathercode }; // Return temperature + condition
 };
+
+//TASK 4 — Handle Button Click
+searchBtn.addEventListener("click", async () => {
+    const city = cityInput.value.trim(); // Read city input
+    if (!city) return;
+    status.textContent = "Loading..."; // Show Loading Text
+    searchBtn.disabled = true; // Disable Button
+    try {
+        const { latitude, longitude } = await getCoordinates(city); // call getCoordinates
+        //Call getWeather()
+        const { temperature: temp, weathercode } = await getWeather(
+            latitude,
+            longitude,
+        );
+        // Update UI (details in tasks 5-6)
+        weatherCard.style.display = "block";
+        //Task 6 ➞ Success State
+        cityName.textContent = city;
+        temperature.textContent = `${temp}°C`;
+        condition.textContent = `Weather code: ${weathercode}`;
+        status.textContent = "";
+    } catch (error) {
+        //Task 7 ➞  Error handling
+        status.textContent = "City not found"; //- Show error message
+
+        weatherCard.style.display = "none"; //- Hide weather card
+    } finally {
+        searchBtn.disabled = false; //- Re-enable button
+    }
+});
