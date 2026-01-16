@@ -1,154 +1,5 @@
 "use strict";
 
-/*
-=====================================================
-📘 ASYNC + FETCH — REFERENCE SYNTAX (STUDY ONLY)
------------------------------------------------------
-
-Basic fetch:
-fetch(url)
-  .then(res => res.json())
-  .then(data => console.log(data))
-  .catch(err => console.error(err));
-
------------------------------------------------------
-
-Async / await version:
-async function getData() {
-  try {
-    const res = await fetch(url);
-    const data = await res.json();
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
------------------------------------------------------
-
-UI async pattern:
-- Show loading
-- Disable button
-- Await data
-- Update UI
-- Handle errors
-- Re-enable button
-=====================================================
-*/
-
-/*
-=====================================================
-🌤 PROJECT: Weather Dashboard
-Concepts:
-✓ Asynchronous JavaScript
-✓ Promises
-✓ async / await
-✓ Fetch API
-✓ Error handling
-✓ UI state management
-=====================================================
-*/
-
-/*
------------------------------------------------------
-TASK 1 — Cache DOM Elements
------------------------------------------------------
-Grab:
-- cityInput
-- searchBtn
-- status
-- weatherCard
-- cityName
-- temperature
-- condition
------------------------------------------------------
-*/
-
-/*
------------------------------------------------------
-TASK 2 — Create Async Function: getCoordinates(city)
------------------------------------------------------
-This function should:
-- Accept a city name
-- Fetch from the Open-Meteo geocoding API
-- Return latitude & longitude
-
-HINT:
-https://geocoding-api.open-meteo.com/v1/search?name=CITY
------------------------------------------------------
-*/
-
-/*
------------------------------------------------------
-TASK 3 — Create Async Function: getWeather(lat, lon)
------------------------------------------------------
-This function should:
-- Accept latitude & longitude
-- Fetch current weather
-- Return temperature + condition
-
-HINT:
-https://api.open-meteo.com/v1/forecast?latitude=LAT&longitude=LON&current_weather=true
------------------------------------------------------
-*/
-
-/*
------------------------------------------------------
-TASK 4 — Handle Button Click
------------------------------------------------------
-When button is clicked:
-- Read city input
-- Show loading text
-- Disable button
-- Call getCoordinates()
-- Call getWeather()
-- Update UI
------------------------------------------------------
-*/
-
-/*
------------------------------------------------------
-TASK 5 — Loading State
------------------------------------------------------
-Before fetch:
-- status = "Loading..."
-- Hide weather card
------------------------------------------------------
-*/
-
-/*
------------------------------------------------------
-TASK 6 — Success State
------------------------------------------------------
-On success:
-- Show weatherCard
-- Display city name
-- Display temperature
-- Display condition
-- Clear status
------------------------------------------------------
-*/
-
-/*
------------------------------------------------------
-TASK 7 — Error State
------------------------------------------------------
-If anything fails:
-- Show error message
-- Hide weather card
-- Re-enable button
------------------------------------------------------
-*/
-
-/*
------------------------------------------------------
-TASK 8 — Final Cleanup
------------------------------------------------------
-In finally:
-- Re-enable button
------------------------------------------------------
-*/
-
 //TASK 1 — Cache DOM Elements
 const cityInput = document.getElementById("cityInput");
 const searchBtn = document.getElementById("searchBtn");
@@ -184,13 +35,11 @@ const getWeather = async (lat, lon) => {
     const { temperature, weathercode } = data.current_weather;
     return { temperature, weathercode }; // Return temperature + condition
 };
-
-//TASK 4 — Handle Button Click
-searchBtn.addEventListener("click", async () => {
-    const city = cityInput.value.trim(); // Read city input
-    if (!city) return;
+//Helper Function for loading weather
+const loadWeather = async (city) => {
     status.textContent = "Loading..."; // Show Loading Text
     searchBtn.disabled = true; // Disable Button
+    weatherCard.style.display = "none"; //- Hide weather card
     try {
         const { latitude, longitude } = await getCoordinates(city); // call getCoordinates
         //Call getWeather()
@@ -198,9 +47,8 @@ searchBtn.addEventListener("click", async () => {
             latitude,
             longitude,
         );
-        // Update UI (details in tasks 5-6)
-        weatherCard.style.display = "block";
         //Task 6 ➞ Success State
+        weatherCard.style.display = "block"; // Update UI (details in tasks 5-6)
         cityName.textContent = city;
         temperature.textContent = `${temp}°C`;
         condition.textContent = `Weather code: ${weathercode}`;
@@ -208,9 +56,12 @@ searchBtn.addEventListener("click", async () => {
     } catch (error) {
         //Task 7 ➞  Error handling
         status.textContent = "City not found"; //- Show error message
-
-        weatherCard.style.display = "none"; //- Hide weather card
     } finally {
         searchBtn.disabled = false; //- Re-enable button
     }
+};
+//TASK 4 — Handle Button Click
+searchBtn.addEventListener("click", () => {
+    const city = cityInput.value.trim(); // Read city input
+    if (city) loadWeather(city);
 });
