@@ -13,97 +13,9 @@ Concepts:
 */
 
 /*
------------------------------------------------------
-TASK 1 — Cache DOM Elements
------------------------------------------------------
-Grab:
-- jokeBtn
-- status
-- jokeCard
-- setup
-- punchline
------------------------------------------------------
-*/
-
-/*
------------------------------------------------------
-TASK 2 — Create Async Function: fetchJoke()
------------------------------------------------------
-This function should:
-- Fetch from the joke API
-- Convert response to JSON
-- Return the joke data
-
-Endpoint:
-https://official-joke-api.appspot.com/random_joke
------------------------------------------------------
-*/
-
-/*
------------------------------------------------------
-TASK 3 — Button Click Handler
------------------------------------------------------
-When clicked:
-- Show loading
-- Disable button
-- Call fetchJoke()
-- Update UI
------------------------------------------------------
-*/
-
-/*
------------------------------------------------------
-TASK 4 — Loading State
------------------------------------------------------
-Before fetch:
-- status = "Loading..."
-- Hide joke card
------------------------------------------------------
-*/
-
-/*
------------------------------------------------------
-TASK 5 — Success State
------------------------------------------------------
-On success:
-- Show joke card
-- Display setup
-- Display punchline
-- Clear status
------------------------------------------------------
-*/
-
-/*
------------------------------------------------------
-TASK 6 — Error State
------------------------------------------------------
-If anything fails:
-- Show error message
-- Hide joke card
------------------------------------------------------
-*/
-
-/*
------------------------------------------------------
-TASK 7 — Final Cleanup
------------------------------------------------------
-In finally:
-- Re-enable button
------------------------------------------------------
-*/
-/*
 =====================================================
-📘 ASYNC + FETCH — REFERENCE SYNTAX (STUDY ONLY)
+📘 ASYNC + FETCH — REFERENCE SYNTAX 
 -----------------------------------------------------
-
-Basic fetch:
-fetch(url)
-  .then(res => res.json())
-  .then(data => console.log(data))
-  .catch(err => console.error(err));
-
------------------------------------------------------
-
 Async / await version:
 async function getData() {
   try {
@@ -114,7 +26,6 @@ async function getData() {
     console.error(error);
   }
 }
-
 -----------------------------------------------------
 */
 
@@ -127,16 +38,44 @@ const punchline = document.getElementById("punchline");
 
 //TASK 2 — Create Async Function: fetchJoke()
 const fetchJoke = async () => {
-    try {
-        const response = await fetch(
-            "https://official-joke-api.appspot.com/random_joke",
-        );
-        if (!response.ok) throw new Error("Failed to fetch Joke!");
-        const data = await response.json();
-        console.log(data);
-        return data;
-    } catch (error) {
-    } finally {
+    const response = await fetch(
+        "https://official-joke-api.appspot.com/random_joke",
+    );
+    if (!response.ok) {
+        throw new Error("Failed to fetch Joke!");
     }
+    const data = await response.json();
+    console.log(data);
+    return data;
 };
-jokeBtn.addEventListener("click", () => {});
+fetchJoke();
+//TASK 3 — Button Click Handler
+jokeBtn.addEventListener("click", async () => {
+    try {
+        status.textContent = "Loading..."; //- Show loading
+
+        //TASK 4 — Loading State
+        jokeCard.style.display = "none"; //- Hide joke card
+
+        jokeBtn.disabled = true; //- Disable button
+
+        const joke = await fetchJoke(); //- Call fetchJoke()
+
+        //TASK 5 — Success State
+
+        jokeCard.style.display = "block"; //- Show joke card
+        setup.textContent = joke.setup; //- Display setup
+
+        punchline.textContent = joke.punchline; //- Display punchline
+        punchline.style.fontStyle = "italic";
+        punchline.style.color = "blue";
+        status.textContent = ""; //- Clear status
+    } catch (error) {
+        // TASK 6 — Error State
+        status.textContent = error.message || "Joke not loaded"; //- Show error message
+        jokeCard.style.display = "none"; //- Hide joke card
+    } finally {
+        //TASK 7 — Final Cleanup
+        jokeBtn.disabled = false; // restore button state
+    }
+});
