@@ -48,6 +48,11 @@ Grab:
 */
 
 // TODO: Cache DOM elements here
+const searchForm = document.getElementById("searchForm");
+const searchInput = document.getElementById("searchInput");
+const searchBtn = document.getElementById("searchBtn");
+const status = document.getElementById("status");
+const movieList = document.getElementById("movieList");
 
 /*
 -----------------------------------------------------
@@ -65,7 +70,21 @@ https://api.tvmaze.com/search/shows?q=QUERY
 */
 
 // TODO: Create async function fetchMovies(query)
+async function fetchMovies(query) {
+    //- Accept a search term (query)
+    //- Fetch from the TVMaze API
+    const response = await fetch(
+        `https://api.tvmaze.com/search/shows?q=${query}`,
+    );
+    if (!response.ok) {
+        throw new Error("Failed to load data");
+    }
+    const data = await response.json(); //- Convert response to JSON
 
+    console.log(data);
+    return data; //- Return the data
+}
+fetchMovies("Bourne Identity");
 /*
 -----------------------------------------------------
 TASK 3 — Form Submit Handler
@@ -80,6 +99,38 @@ When the user submits:
 */
 
 // TODO: Add submit event listener
+searchForm.addEventListener("submit", async (e) => {
+    e.preventDefault(); //- Prevent page reload
+    const movieTitle = searchInput.value; //- Get the search input value
+
+    //TASK 4 — Loading State
+    status.textContent = "Searching...";
+    movieList.innerHTML = ""; // Clear previous results
+    searchInput.disabled = true; //- Disable input field
+    searchBtn.disabled = true; //- Disable search button
+    try {
+        //TASK 5 — Success State
+        const movies = await fetchMovies(movieTitle); //- Call fetchMovies(query)
+        status.innerHTML = ""; //- Clear status
+        //- Loop through results
+        movies.forEach((movie) => {
+            const list = document.createElement("li"); //- Render each movie into the DOM
+            list.textContent = movie.show.name; //- Show title
+
+            if (movie.show.image) {
+                //- Show image (if available)
+
+                const img = document.createElement("img");
+                img.src = movie.show.image.medium;
+                list.appendChild(img);
+            }
+
+            movieList.appendChild(list);
+        });
+    } catch (error) {
+    } finally {
+    }
+});
 
 /*
 -----------------------------------------------------
@@ -140,5 +191,7 @@ This function should:
 - Append to movieList
 -----------------------------------------------------
 */
+
+//TASK 1 — Cache DOM Elements
 
 // TODO: Create render helper
