@@ -26,25 +26,6 @@ async function getData() {
   }
 }
 
------------------------------------------------------
-
-TVMaze Search Example:
-https://api.tvmaze.com/search/shows?q=batman
-
------------------------------------------------------
-*/
-
-/*
------------------------------------------------------
-TASK 1 — Cache DOM Elements
------------------------------------------------------
-Grab:
-- searchForm
-- searchInput
-- searchBtn
-- status
-- movieList (results container)
------------------------------------------------------
 */
 
 // TODO: Cache DOM elements here
@@ -53,21 +34,6 @@ const searchInput = document.getElementById("searchInput");
 const searchBtn = document.getElementById("searchBtn");
 const status = document.getElementById("status");
 const movieList = document.getElementById("movieList");
-
-/*
------------------------------------------------------
-TASK 2 — Create Async Function: fetchMovies(query)
------------------------------------------------------
-This function should:
-- Accept a search term (query)
-- Fetch from the TVMaze API
-- Convert response to JSON
-- Return the data
-
-Endpoint format:
-https://api.tvmaze.com/search/shows?q=QUERY
------------------------------------------------------
-*/
 
 // TODO: Create async function fetchMovies(query)
 async function fetchMovies(query) {
@@ -84,18 +50,6 @@ async function fetchMovies(query) {
     console.log(data);
     return data; //- Return the data
 }
-/*
------------------------------------------------------
-TASK 3 — Form Submit Handler
------------------------------------------------------
-When the user submits:
-- Prevent page reload
-- Get the search input value
-- Show loading state
-- Disable input/button
-- Call fetchMovies(query)
------------------------------------------------------
-*/
 //TASK 8 — Create renderMovie(movie) Helper Function
 const renderMovie = (movies) => {
     //- Loop through results
@@ -141,67 +95,3 @@ searchForm.addEventListener("submit", async (e) => {
         searchBtn.disabled = false; //- Re-enable search button
     }
 });
-
-/*
------------------------------------------------------
-TASK 4 — Loading State
------------------------------------------------------
-Before fetch:
-- status = "Searching..."
-- Clear previous results
------------------------------------------------------
-*/
-
-// TODO: Implement loading UI logic
-
-/*
------------------------------------------------------
-TASK 5 — Success State
------------------------------------------------------
-On success:
-- Clear status
-- Loop through results
-- Render each movie into the DOM
-- Show title + image (if available)
------------------------------------------------------
-*/
-
-// TODO: Render movie results
-
-/*
------------------------------------------------------
-TASK 6 — Error State
------------------------------------------------------
-If anything fails:
-- Show error message
-- Clear results
------------------------------------------------------
-*/
-
-// TODO: Handle errors
-
-/*
------------------------------------------------------
-TASK 7 — Final Cleanup
------------------------------------------------------
-In finally:
-- Re-enable input/button
------------------------------------------------------
-*/
-
-// TODO: Restore UI state
-
-/*
------------------------------------------------------
-TASK 8 — Create renderMovie(movie) Helper
------------------------------------------------------
-This function should:
-- Create DOM elements
-- Populate with movie data
-- Append to movieList
------------------------------------------------------
-*/
-
-//TASK 1 — Cache DOM Elements
-
-// TODO: Create render helper

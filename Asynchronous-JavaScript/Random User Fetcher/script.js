@@ -1,47 +1,5 @@
 "use strict";
 
-/*
-=====================================================
-📘 FETCH + ASYNC/AWAIT — REFERENCE SYNTAX
------------------------------------------------------
-
-Basic fetch example:
-/*
-
-fetch("https://randomuser.me/api/")
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-
------------------------------------------------------
-Same logic using async / await
------------------------------------------------------
-
-
-async function fetchExample() {
-  try {
-    const response = await fetch("https://randomuser.me/api/");
-    const data = await response.json();
-    console.log(data);
-  } catch (error) {
-    console.error("Error:", error);
-  }
-}
-
------------------------------------------------------
-IMPORTANT CONCEPTS:
------------------------------------------------------
-- fetch() returns a Promise
-- response.json() returns a Promise
-- await pauses execution
-- try/catch handles async errors
-=====================================================
-*/
-
 //TASK 1 — Cache DOM Elements
 const loadBtn = document.getElementById("loadBtn");
 const status = document.getElementById("status");
