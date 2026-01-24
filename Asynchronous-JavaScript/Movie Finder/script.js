@@ -84,7 +84,6 @@ async function fetchMovies(query) {
     console.log(data);
     return data; //- Return the data
 }
-fetchMovies("Bourne Identity");
 /*
 -----------------------------------------------------
 TASK 3 — Form Submit Handler
@@ -97,6 +96,25 @@ When the user submits:
 - Call fetchMovies(query)
 -----------------------------------------------------
 */
+//TASK 8 — Create renderMovie(movie) Helper Function
+const renderMovie = (movies) => {
+    //- Loop through results
+    movies.forEach((movie) => {
+        //- Create DOM elements
+        const list = document.createElement("li"); //- Render each movie into the DOM
+        //- Populate with movie data
+        list.textContent = movie.show.name; //- Show title
+
+        if (movie.show.image) {
+            //- Show image (if available)
+
+            const img = document.createElement("img");
+            img.src = movie.show.image.medium;
+            list.appendChild(img);
+        }
+        movieList.appendChild(list); //- Append to movieList
+    });
+};
 
 // TODO: Add submit event listener
 searchForm.addEventListener("submit", async (e) => {
@@ -111,24 +129,16 @@ searchForm.addEventListener("submit", async (e) => {
     try {
         //TASK 5 — Success State
         const movies = await fetchMovies(movieTitle); //- Call fetchMovies(query)
-        status.innerHTML = ""; //- Clear status
-        //- Loop through results
-        movies.forEach((movie) => {
-            const list = document.createElement("li"); //- Render each movie into the DOM
-            list.textContent = movie.show.name; //- Show title
-
-            if (movie.show.image) {
-                //- Show image (if available)
-
-                const img = document.createElement("img");
-                img.src = movie.show.image.medium;
-                list.appendChild(img);
-            }
-
-            movieList.appendChild(list);
-        });
+        status.textContent = ""; //- Clear status
+        renderMovie(movies);
+        //TASK 6 — Error State
     } catch (error) {
+        //If anything fails: - Show error message
+        status.textContent = error.message;
+        //TASK 7 — Final Cleanup
     } finally {
+        searchInput.disabled = false; //- Re-enable input field
+        searchBtn.disabled = false; //- Re-enable search button
     }
 });
 
