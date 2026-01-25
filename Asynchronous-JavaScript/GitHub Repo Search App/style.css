@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+}
+
+body {
+  background: #0d1117;
+  color: #c9d1d9;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+.container {
+  width: 100%;
+  max-width: 700px;
+}
+
+h1 {
+  margin-bottom: 16px;
+  font-size: 1.8rem;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  background: #161b22;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+  border-radius: 6px;
+}
+
+button {
+  padding: 10px 16px;
+  background: #238636;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+#status {
+  margin: 10px 0;
+  font-size: 0.95rem;
+}
+
+#repoList {
+  list-style: none;
+  padding: 0;
+}
+
+.repo {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+.repo a {
+  color: #58a6ff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.repo p {
+  margin: 6px 0;
+  font-size: 0.9rem;
+  color: #8b949e;
+}
+
+.repo .meta {
+  display: flex;
+  gap: 12px;
+  font-size: 0.85rem;
+}
