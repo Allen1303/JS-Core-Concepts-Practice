@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 1: Call Stack Visualizer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>📚 Call Stack Visualizer</h1>
+        <p class="subtitle">Understanding the Execution Context Stack</p>
+      </header>
+
+      <div class="content">
+        <div class="controls">
+          <button id="startBtn" class="btn btn-primary">Start Execution</button>
+          <button id="resetBtn" class="btn btn-secondary">Reset</button>
+        </div>
+
+        <div class="visualization-area">
+          <div class="stack-container">
+            <h2>Call Stack</h2>
+            <div id="callStack" class="stack"></div>
+          </div>
+
+          <div class="log-container">
+            <h2>Execution Log</h2>
+            <div id="executionLog" class="log"></div>
+          </div>
+        </div>
+
+        <div class="info-panel">
+          <h3>Current Context Info</h3>
+          <div id="contextInfo" class="context-info">
+            <p>Press "Start Execution" to begin</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
