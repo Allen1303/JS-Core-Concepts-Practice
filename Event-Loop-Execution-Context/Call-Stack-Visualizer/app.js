@@ -32,8 +32,8 @@ function removeFromStack() {
     const lastChild = callStack.lastElementChild; // Get the last child of the callStack
     lastChild.classList.add("removing"); // Add the 'removing' class for animation
     setTimeout(() => {
-        lastChild.remove(); //After 2000ms, remove the element from the DOM
-    }, 2000);
+        lastChild.remove(); //After 3000ms, remove the element from the DOM
+    }, 3000);
 }
 
 function logExecution(message) {
@@ -68,7 +68,7 @@ async function multiply(a, b) {
         action: "calculating product",
     }); // * 3. Update context info
     const result = a * b; // * 4. Perform its operation
-    await new Promise((resolve) => setTimeout(resolve, 2000)); // * Use setTimeout with delays
+    await new Promise((resolve) => setTimeout(resolve, 3000)); // * Use setTimeout with delays
 
     removeFromStack(); // * 5. Remove itself from the stack when done
     return result;
@@ -85,7 +85,7 @@ async function add(a, b) {
         action: "calculating sum",
     }); //  Update context info
     const result = a + b; // Perform its operation
-    await new Promise((resolve) => setTimeout(resolve, 2000)); // * Use setTimeout with delays
+    await new Promise((resolve) => setTimeout(resolve, 3000)); // * Use setTimeout with delays
 
     removeFromStack(); // * 5. Remove itself from the stack when done
     return result;
@@ -105,7 +105,7 @@ async function calculate() {
     const finalResult = await add(result, 3); // Call add(result, 3)
     logExecution(`Final result: ${finalResult}`); // Log final result
 
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 3000));
 
     removeFromStack(); // Remove from stack
 }
@@ -123,7 +123,7 @@ async function main() {
     await calculate(); // Call calculate()
     logExecution("Program complete"); //  Log completion
 
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 3000));
     removeFromStack(); // Remove global context from stack
 }
 
