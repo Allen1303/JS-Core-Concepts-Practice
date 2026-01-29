@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 2: Event Loop & Task Queue Visualizer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>🔄 Event Loop & Task Queue Visualizer</h1>
+        <p class="subtitle">Understanding Asynchronous JavaScript</p>
+      </header>
+
+      <div class="content">
+        <div class="controls">
+          <button id="startBtn" class="btn btn-primary">Start Execution</button>
+          <button id="resetBtn" class="btn btn-secondary">Reset</button>
+        </div>
+
+        <div class="visualization-grid">
+          <div class="section call-stack-section">
+            <h2>Call Stack</h2>
+            <div id="callStack" class="stack"></div>
+          </div>
+
+          <div class="section web-apis-section">
+            <h2>Web APIs</h2>
+            <div id="webAPIs" class="apis-container"></div>
+          </div>
+
+          <div class="section task-queue-section">
+            <h2>Task Queue (Callback Queue)</h2>
+            <div id="taskQueue" class="queue"></div>
+          </div>
+
+          <div class="section event-loop-section">
+            <h2>Event Loop</h2>
+            <div id="eventLoop" class="event-loop-indicator">
+              <div class="loop-status">Idle</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="log-section">
+          <h2>Execution Log</h2>
+          <div id="executionLog" class="log"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
