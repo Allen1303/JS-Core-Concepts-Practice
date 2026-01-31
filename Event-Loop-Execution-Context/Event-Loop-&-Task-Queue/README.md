@@ -1,4 +1,4 @@
-# JavaScript Event Loop & Execution Context - Exercise Series
+# JavaScript Event Loop & Execution Context - Exercise
 
 ## 📚 Exercise 2: Event Loop & Task Queue Visualizer
 
@@ -14,29 +14,29 @@ JavaScript in browsers has several components:
 
 ```
 ┌─────────────────────────────────────────┐
-│         JavaScript Engine               │
-│  ┌─────────────────────────────────┐    │
-│  │       Call Stack                │    │
-│  │  (Synchronous Code Execution)   │    │
-│  └─────────────────────────────────┘    │
+│ JavaScript Engine                       │
+│ ┌─────────────────────────────────┐     │
+│ │ Call Stack                      │     │
+│ │ (Synchronous Code Execution)    │
+│ └─────────────────────────────────┘     │
 └─────────────────────────────────────────┘
          ↑                    ↓
          │                    │
 ┌────────┴────────────────────┴────────────┐
-│           Web APIs                       │
-│  (setTimeout, fetch, DOM events, etc.)   │
+│ Web APIs                                 │
+│ (setTimeout, fetch, DOM events, etc.)    │
 └────────┬─────────────────────────────────┘
          │
          ↓
 ┌─────────────────────────────────────────┐
-│         Task Queue                      │
-│      (Callback Queue)                   │
+│ Task Queue                              │
+│ (Callback Queue)                        │
 └────────┬────────────────────────────────┘
          │
          ↓
 ┌─────────────────────────────────────────┐
-│         Event Loop                      │
-│  (Monitors Stack & Queue)               │
+│ Event Loop                              │
+│ (Monitors Stack & Queue)                │
 └─────────────────────────────────────────┘
 ```
 
@@ -79,7 +79,7 @@ Web APIs are provided by the browser (not JavaScript itself):
 
 The Event Loop has **one simple job**:
 
-```javascript
+```js
 while (true) {
   if (callStack.isEmpty() && taskQueue.hasCallbacks()) {
     const callback = taskQueue.dequeue();
@@ -100,7 +100,7 @@ while (true) {
 
 Let's trace through this code:
 
-```javascript
+```js
 console.log("Start");
 
 setTimeout(() => {
@@ -112,12 +112,12 @@ console.log("End");
 
 **Execution Flow:**
 
-```
 Step 1: console.log('Start') → Call Stack
 Output: "Start"
 Pop from stack
 
 Step 2: setTimeout() → Call Stack
+
 - setTimeout is called
 - Timer (1000ms) goes to Web APIs
 - setTimeout pops from stack (doesn't wait!)
@@ -129,9 +129,11 @@ Pop from stack
 Step 4: Call Stack is empty, but timer still running in Web APIs
 
 Step 5: After 1000ms, timer completes
+
 - Callback moves to Task Queue
 
 Step 6: Event Loop checks
+
 - Stack empty? YES
 - Queue has callback? YES
 - Move callback to stack
@@ -143,12 +145,11 @@ Pop from stack
 Final Output Order:
 "Start"
 "End"
-"Timeout"  ← Runs AFTER "End" even though delay is 1000ms!
-```
+"Timeout" ← Runs AFTER "End" even though delay is 1000ms!
 
 **Key Insight:** `setTimeout(callback, 0)` still goes through the Event Loop!
 
-```javascript
+```js
 console.log("A");
 setTimeout(() => console.log("B"), 0);
 console.log("C");
@@ -169,7 +170,7 @@ console.log("After timeout"); // Would have to wait 5 seconds!
 
 With the Event Loop:
 
-```javascript
+```js
 // setTimeout doesn't block:
 setTimeout(() => console.log("Done"), 5000);
 console.log("After timeout"); // Runs immediately!
@@ -218,7 +219,7 @@ heavyWork(); // Blocks the stack for 5 seconds
 
 ### Learning Outcomes
 
-After completing this exercise, you should be able to:
+This exercise, allows us to:
 
 ✅ Explain how the Event Loop works  
 ✅ Understand why asynchronous code doesn't block  
@@ -272,17 +273,7 @@ const elements = document.querySelectorAll(".className");
 const child = parentElement.querySelector(".child-class");
 ```
 
-### Testing Your Implementation
-
-Your implementation should demonstrate:
-
-1. ✅ Synchronous code executes immediately on the Call Stack
-2. ✅ `setTimeout` moves to Web APIs and counts down
-3. ✅ When timer completes, callback goes to Task Queue
-4. ✅ Event Loop moves callbacks only when Stack is empty
-5. ✅ Task Queue is FIFO (first callback in is first to execute)
-
-### Expected Execution Flow
+### Execution Flow
 
 ```
 1. main() → Call Stack
@@ -294,24 +285,6 @@ Your implementation should demonstrate:
 7. Event Loop checks → Stack empty, Queue has callback
 8. Callback → Call Stack → Executes
 ```
-
-### Debugging Tips
-
-If your visualizer isn't working:
-
-1. **Check the Console:** Look for JavaScript errors
-2. **Verify DOM elements:** Make sure IDs match between HTML and JS
-3. **Check timing:** Are delays reasonable? (Not too fast or slow)
-4. **Test incrementally:** Complete one task at a time
-5. **Use console.log:** Add logs to see what's happening
-
-### Next Steps
-
-Once you master this exercise, you'll be ready for Exercise 3, which introduces:
-
-- **Promises** and the **Microtask Queue**
-- **async/await** syntax
-- **Priority** between different types of async operations
 
 ---
 
@@ -326,23 +299,9 @@ exercise-2/
 └── README.md           # This file
 ```
 
-## How to Use
-
-1. Open `index.html` in a web browser
-2. Complete the tasks in `app.js` following the detailed instructions
-3. Each task has explicit steps and syntax reminders
-4. Click "Start Execution" to test your implementation
-5. Observe how async operations flow through the system
-
 ## Resources
 
 - [MDN: Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)
 - [JavaScript.info: Event Loop](https://javascript.info/event-loop)
 - [Philip Roberts: What the heck is the event loop anyway?](https://www.youtube.com/watch?v=8aGhZQkoFbQ) (Excellent video!)
 - [Jake Archibald: In The Loop](https://www.youtube.com/watch?v=cCOL7MC4Pl0) (Advanced)
-
----
-
-**Note:** This is Exercise 2 of 5. Complete this before moving to Exercise 3!
-
-**Prerequisite:** Make sure you've completed Exercise 1 (Call Stack Visualizer) first!
