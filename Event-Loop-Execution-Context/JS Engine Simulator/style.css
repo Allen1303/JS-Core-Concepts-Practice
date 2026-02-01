@@ -1,0 +1,79 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #1a1a1a;
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.dashboard {
+  width: 800px;
+  text-align: center;
+}
+
+.controls {
+  margin-bottom: 30px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  background: #444;
+  color: white;
+  border: 1px solid #666;
+}
+
+button:hover {
+  background: #666;
+}
+
+.visualizer {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.box {
+  flex: 1;
+  background: #2a2a2a;
+  padding: 15px;
+  border-radius: 8px;
+  min-height: 200px;
+}
+
+.container {
+  border: 2px dashed #555;
+  min-height: 120px;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column-reverse; /* Stack-like behavior */
+  align-items: center;
+  padding: 10px;
+}
+
+.task-item {
+  background: #ffca28;
+  color: black;
+  padding: 8px;
+  margin: 4px;
+  width: 90%;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+/* Colors for task types */
+.sync {
+  background: #4caf50;
+  color: white;
+}
+.micro {
+  background: #2196f3;
+  color: white;
+}
+.macro {
+  background: #f44336;
+  color: white;
+}

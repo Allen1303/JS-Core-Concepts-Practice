@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Engine Simulator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="dashboard">
+      <h1>JS Engine Simulator</h1>
+
+      <div class="controls">
+        <button id="sync-btn">Run Synchronous Task</button>
+        <button id="promise-btn">Run Promise (Microtask)</button>
+        <button id="timeout-btn">Run Timeout (Macrotask)</button>
+      </div>
+
+      <div class="visualizer">
+        <div class="box">
+          <h3>Call Stack</h3>
+          <div id="stack" class="container"></div>
+          <small>Active Execution Contexts</small>
+        </div>
+
+        <div class="box">
+          <h3>Microtask Queue</h3>
+          <div id="micro-queue" class="container"></div>
+          <small>Promises Waiting</small>
+        </div>
+
+        <div class="box">
+          <h3>Macrotask Queue</h3>
+          <div id="macro-queue" class="container"></div>
+          <small>Timeouts Waiting</small>
+        </div>
+      </div>
+
+      <button id="reset-btn">Clear All</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
