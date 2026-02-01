@@ -90,14 +90,6 @@ Map user interactions to the physical movement of "tasks" between different UI c
 
 ---
 
-## 🧪 Challenges for Improvement
-
-- [ ] **Sequential Stacking:** Modify the `sync-btn` to call three different functions (`taskA`, `taskB`, `taskC`) and visualize them stacking on top of each other.
-- [ ] **Blocking the Stack:** Create a "Heavy Loop" button that runs a `for` loop for 5 seconds. Observe how the UI "freezes" and no other tasks can move until it finishes.
-- [ ] **Queue Counters:** Add a small badge to each header showing the number of tasks currently waiting in that specific queue.
-
----
-
 ### 📂 Project Structure
 
 - `index.html` - The "dashboard" containing the Stack and Queues.
